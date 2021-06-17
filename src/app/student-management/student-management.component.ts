@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Student } from '../sharedFolder/student.model';
+import { StudentService } from './student.service';
 
 @Component({
   selector: 'app-student-management',
@@ -7,51 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentManagementComponent implements OnInit {
 
-  elements: any = [
-    {
-    id: 1, 
-    name: 'Praveen', 
-    college: 'UCET',
-    year: 1, 
-    department: 'CSE',
-    semester:2,
-    mobileNumber:'0000000000'
-  },
-    {
-    id: 2, 
-    name: 'DineshKumar', 
-    college: 'UCET',
-    year: 4, 
-    department: 'IT',
-    semester: 8,
-    mobileNumber:'0000000000'
-    },
-    {
-    id: 3, 
-    name: 'Ajith', 
-    college: 'UCEV',
-    year: 3, 
-    department: 'ECE',
-    semester:5,
-    mobileNumber:'0000000000'
-    },
+  students: Student[] = [
+
   ];
 
-  headElements = ['ID', 'Name', 'College', 'Year','Department','Semester','Mobile','Action'];
-  constructor() { }
+  headElements = ['ID', 'Name', 'College', 'Year', 'Department', 'Semester', 'Mobile', 'Action'];
+  constructor(private studentService: StudentService) { }
 
   ngOnInit(): void {
+    this.studentService.studentChanged
+      .subscribe((students: Student[]) => {
+        this.students = students;
+      })
+    this.students = this.studentService.getStudents();
   }
 
-  onEdit(index: number){
+  onEdit(index: number) {
     console.log('this is button to Edit index:' + index);
   }
-  onView(index: number){
+
+  onView(index: number) {
     console.log('this is button to View:' + index);
   }
-  onDelete(index: number){
+
+  onDelete(index: number) {
+    this.studentService.deleteStudent(index)
     console.log('this is button to Delete:' + index);
-    this.elements.splice(index,1);
+    //this.elements.splice(index,1);
   }
 
 }
