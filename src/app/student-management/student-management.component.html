@@ -1,0 +1,48 @@
+<div class="container-fluid" style="margin-top:100px;">
+    <div class="row">
+        <div class="col-md-6  mx-auto">
+            <div class="md-form">
+                <input type="text" 
+                class="form-control" 
+                mdbInput placeholder="Search" 
+                style="width: 25vw;"/>
+            </div>
+        </div>
+        <div class="col-md-6 mx-auto">
+            <button class="btn btn-primary" style="float: right;">
+                <i class="bi bi-plus-lg"></i>
+                Create
+            </button>
+            <button class="btn btn-primary" style="margin-right: 10px; float:right;">
+                <i class="bi bi-check2-square"></i>
+                Save
+            </button>
+        </div>
+    </div>
+
+
+    <table class="table" sdtTable style="margin-top:10px">
+        <thead style="background-color: #15008fe5; color: white;">
+            <tr>
+                <th style="width:50px" *ngFor="let head of headElements" scope="col">{{head}} </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr mdbTableCol *ngFor="let el of elements; let i = index">
+                <th style="width:50px" scope="row">{{el.id}}</th>
+                <td style="width:50px">{{el.name}}</td>
+                <td style="width:50px">{{el.college}}</td>
+                <td style="width:50px">{{el.year}}</td>
+                <td style="width:50px">{{el.department}}</td>
+                <td style="width:50px">{{el.semester}}</td>
+                <td style="width:50px">{{el.mobileNumber}}</td>
+                <td style="width:50px" class="action-column">
+                        <i class="bi bi-pencil-square" style="cursor: pointer; color: #0051ff9a;" data-toggle="tooltip" title="Edit"  (click)="onEdit(i)"></i>&nbsp;
+                        <i class="bi bi-eye"  style="cursor: pointer; color: #005a00;" data-toggle="tooltip" title="View" (click)="onView(i)"></i>&nbsp;
+                        <i class="bi bi-trash" style="cursor: pointer; color: #b60404;" data-toggle="tooltip" title="Delete"  (click)="onDelete(i)"></i>&nbsp;
+                        
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
