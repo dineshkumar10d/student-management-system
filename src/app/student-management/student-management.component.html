@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-6  mx-auto">
             <div class="md-form">
-                <input type="text" class="form-control" placeholder="Search" style="width: 25vw;" />
+                <input type="text" class="form-control" placeholder="Search" style="width: 25vw;" (onchange)="onSearch(t)" />
             </div>
         </div>
         <div class="col-md-6 mx-auto">
@@ -12,8 +12,8 @@
             </button>
         </div>
     </div>
-
-    <table class="table" style="margin-top:10px">
+<div class="table-responsive">
+    <table class="table" style="margin-top:10px;" #t>
         <thead style="background-color: #15008fe5; color: white;">
             <tr>
                 <th style="width:50px" *ngFor="let head of headElements" scope="col">{{head}} </th>
@@ -39,5 +39,6 @@
             </tr>
         </tbody>
     </table>
+</div>
     <app-student-detail></app-student-detail>
 </div>
