@@ -4,11 +4,10 @@ export class Student {
     public name: string;
     public fatherName:string;
     public address: string;
-    public college: string;
+    public collegeName: string;
     public year: number;
     public department: string;
-    public semester: number;
-    public yearOfPassedout: number;
+    public yearOfJoin: number;
     public firstGraduate: boolean;
     public age: number;
     public mobile: string;
@@ -19,11 +18,10 @@ export class Student {
         name: string,
         fatherName:string, 
         address: string,
-        college: string,
+        collegeName: string,
         year: number,
         department: string,
-        semester: number,
-        yearOfPassedout: number,
+        yearOfJoin: number,
         firstGraduate: boolean,
         age: number,
         mobile: string,
@@ -35,12 +33,11 @@ export class Student {
         this.address = address;
         this.year = year;
         this.department = department;
-        this.semester = semester;
-        this.yearOfPassedout = yearOfPassedout;
+        this.yearOfJoin = yearOfJoin;
         this.firstGraduate = firstGraduate;
         this.age = age;
         this.mobile = mobile;
         this.email = email;
-        this.college = college;
+        this.collegeName = collegeName;
     }
 }

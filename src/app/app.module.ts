@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { StudentManagementComponent } from './student-management/student-management.component';
 import { StudentDetailComponent } from './student-management/student-detail/student-detail.component';
+import { ModalModule } from 'ngb-modal';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +19,9 @@ import { StudentDetailComponent } from './student-management/student-detail/stud
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ModalModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

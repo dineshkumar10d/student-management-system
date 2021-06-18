@@ -1,1 +1,126 @@
-<p>student-detail works!</p>
+<div class="row">
+    <modal #myModal>
+        <modal-header style="background-color: #15008fe5;">
+        </modal-header>
+        <modal-content>
+            <form id="studentForm" name="form" (ngSubmit)="f.form.valid && onSave(f)" #f="ngForm">
+                <div class="row">
+                    <div class="form-group col-md-6 col-lg-4">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Student Name" ngModel
+                            required #name="ngModel">
+                        <span *ngIf="!name.valid && name.touched"
+                            style="color: red; font-size: 10px; font-weight: bold;">
+                            Please enter the valid name!
+                        </span>
+                    </div>
+                    <div class="form-group col-md-6 col-lg-4">
+                        <label for="fName">Father Name</label>
+                        <input type="text" class="form-control" id="fName" name="fatherName" placeholder="Father Name"
+                            ngModel required #fname="ngModel">
+                        <span *ngIf="!fname.valid && fname.touched"
+                            style="color: red; font-size: 10px; font-weight: bold;">
+                            Please enter the valid name!
+                        </span>
+                    </div>
+                    <div class="form-group col-md-6 col-lg-4">
+                        <label for="colName">College</label>
+                        <input type="text" class="form-control" id="colName" placeholder="College Name"
+                            name="collegeName" ngModel required #cname="ngModel">
+                        <span *ngIf="!cname.valid && cname.touched"
+                            style="color: red; font-size: 10px; font-weight: bold;">
+                            Please enter the valid name!
+                        </span>
+                    </div>
+                    <div class="form-group col-md-6 col-lg-4">
+                        <label for="address">Address</label>
+                        <textarea class="form-control" id="address" placeholder="Student Address" name="address" ngModel
+                            required #address="ngModel"></textarea>
+                        <span *ngIf="!address.valid && address.touched"
+                            style="color: red; font-size: 10px; font-weight: bold;">
+                            Please enter the valid address!
+                        </span>
+                    </div>
+                    <div class="form-group col-md-6 col-lg-4">
+                        <label for="degree">Degree</label>
+                        <select class="form-select form-control" id="degree" name="degree" ngModel required
+                            #degree="ngModel">
+                            <option value="1">B.E</option>
+                            <option value="2">B.Tech</option>
+                        </select>
+                        <span *ngIf="!degree.valid && degree.touched"
+                            style="color: red; font-size: 10px; font-weight: bold;">
+                            Please select the degree!
+                        </span>
+                    </div>
+
+                    <div class="form-group col-md-6 col-lg-4">
+                        <label for="dept">Department</label>
+                        <input type="text" class="form-control" id="dept" name="department" ngModel required
+                            placeholder="Department" #dept="ngModel">
+                        <span *ngIf="!dept.valid && dept.touched"
+                            style="color: red; font-size: 10px; font-weight: bold;">
+                            Please enter the valild department!
+                        </span>
+                    </div>
+                    <div class="form-group col-md-6 col-lg-4">
+                        <label for="year">Year</label>
+                        <select class="form-select form-control" id="year" name="year" ngModel required #year="ngModel">
+                            <option selected value="1">Ist Year</option>
+                            <option value="2">IInd Year</option>
+                            <option value="3">IIIrd Year</option>
+                            <option value="4">IVth Year</option>
+                            <option value="5">Completed</option>
+                        </select>
+                        <span *ngIf="!year.valid && year.touched"
+                            style="color: red; font-size: 10px; font-weight: bold;">
+                            Please select the year!
+                        </span>
+                    </div>
+                    <div class="form-group col-md-6 col-lg-4">
+                        <label for="yoj">Year Of Joining</label>
+                        <input type="number" class="form-control" id="yoj" placeholder="Year Of Joining"
+                            name="yearOfJoin" ngModel required pattern="^20(1[1-9]|[2-9][0-9])$" #yoj="ngModel">
+                        <span *ngIf="!yoj.valid && yoj.touched" style="color: red; font-size: 10px; font-weight: bold;">
+                            Please enter the year above 2010!
+                        </span>
+                    </div>
+                    <div class="form-group col-md-6 col-lg-4">
+                        <label for="firstGraduate">First Graduate</label>
+                        <input type="checkbox" class="form-control" id="firstGraduate" name="firstGraduate" ngModel>
+                    </div>
+                    <div class="form-group col-md-6 col-lg-4">
+                        <label for="age">age</label>
+                        <input type="number" class="form-control" id="age" placeholder="Age Of the Student" name="age"
+                            ngModel required pattern="^(?:1[01][0-9]|120|1[7-9]|[2-9][0-9])$" #age="ngModel">
+                        <span *ngIf="!age.valid && age.touched" style="color: red; font-size: 10px; font-weight: bold;">
+                            Please enter the age above 16!
+                        </span>
+                    </div>
+                    <div class="form-group col-md-6 col-lg-4">
+                        <label for="mobile">Mobile</label>
+                        <input type="number" class="form-control" id="mobile" placeholder="Mobile No" name="mobile"
+                            required ngModel pattern="[6-9]{1}[0-9]{9}" #mobile="ngModel">
+                        <span *ngIf="!mobile.valid && mobile.touched"
+                            style="color: red; font-size: 10px; font-weight: bold;">
+                            Please enter the valid mobile number!
+                        </span>
+                    </div>
+                    <div class="form-group col-md-6 col-lg-4">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Email Id" name="email" required
+                            ngModel email #email="ngModel">
+                        <span *ngIf="!email.valid && email.touched"
+                            style="color: red; font-size: 10px; font-weight: bold;">
+                            Please enter the valid email!
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </modal-content>
+        <modal-footer>
+            <button form="studentForm" type="submit" class="btn btn-primary" [disabled]="!f.valid">Save</button>&nbsp;
+            <button type="button" class="btn btn-primary" (click)="closeModal()">close</button>
+        </modal-footer>
+    </modal>
+</div>

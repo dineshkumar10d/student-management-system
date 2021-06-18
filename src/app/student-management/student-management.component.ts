@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DialogService } from '../sharedFolder/dialog.service';
 import { Student } from '../sharedFolder/student.model';
 import { StudentService } from './student.service';
 
@@ -8,13 +9,10 @@ import { StudentService } from './student.service';
   styleUrls: ['./student-management.component.css']
 })
 export class StudentManagementComponent implements OnInit {
-
-  students: Student[] = [
-
-  ];
-
-  headElements = ['ID', 'Name', 'College', 'Year', 'Department', 'Semester', 'Mobile', 'Action'];
-  constructor(private studentService: StudentService) { }
+  students: Student[] = [];
+  title: string ='';
+  headElements = ['ID', 'Name', 'College', 'Year', 'Department', 'email', 'Mobile', 'Action'];
+  constructor(private studentService: StudentService, private dialogService: DialogService) { }
 
   ngOnInit(): void {
     this.studentService.studentChanged
@@ -24,18 +22,23 @@ export class StudentManagementComponent implements OnInit {
     this.students = this.studentService.getStudents();
   }
 
+  onCreate(){
+    this.title = 'Create';
+    this.dialogService.dialog.next(this.title);
+  }
+
   onEdit(index: number) {
-    console.log('this is button to Edit index:' + index);
+    this.title = 'Edit';
+    this.dialogService.dialog.next(this.title);  
   }
 
   onView(index: number) {
-    console.log('this is button to View:' + index);
+    this.title = 'View';
+    this.dialogService.dialog.next(this.title);
   }
 
   onDelete(index: number) {
     this.studentService.deleteStudent(index)
-    console.log('this is button to Delete:' + index);
-    //this.elements.splice(index,1);
   }
 
 }
