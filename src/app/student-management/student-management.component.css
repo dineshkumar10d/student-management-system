@@ -1,4 +1,5 @@
 .table-responsive {
+    overflow: auto;
     max-height: 420px;
 }
 
@@ -22,6 +23,8 @@
 .table-header {
     background-color: #15008fe5;
     color: white;
+    position: sticky;
+    top: 0;
 }
 
 .t-data {
