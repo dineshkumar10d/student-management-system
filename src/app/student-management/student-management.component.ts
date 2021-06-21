@@ -8,6 +8,7 @@ import { StudentService } from '../sharedFolder/student.service';
   styleUrls: ['./student-management.component.css']
 })
 export class StudentManagementComponent implements OnInit {
+  searchString: string;
   students: Student[] = [];
   title: string = '';
   headElements = ['ID', 'Name', 'College', 'Year', 'Department', 'email', 'Mobile', 'Action'];

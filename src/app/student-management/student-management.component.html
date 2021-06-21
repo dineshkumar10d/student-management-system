@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-6  mx-auto">
             <div class="md-form">
-                <input type="text" class="form-control search" placeholder="Search" (input)="onSearch(t)" />
+                <input type="text" class="form-control search" placeholder="Search" [(ngModel)]="searchString" />
             </div>
         </div>
         <div class="col-md-6 mx-auto">
@@ -20,7 +20,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let std of students; let i = index">
+                <tr *ngFor="let std of students | filter:searchString; let i = index">
                     <th class="t-data" scope="row">{{i + 1}}</th>
                     <td class="t-data">{{std.name}}</td>
                     <td class="t-data">{{std.collegeName}}</td>

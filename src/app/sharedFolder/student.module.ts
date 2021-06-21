@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ModalModule } from 'ngb-modal';
 import { StudentManagementComponent } from '../student-management/student-management.component';
 import { StudentDetailComponent } from '../student-management/student-detail/student-detail.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { StudentDetailComponent } from '../student-management/student-detail/stu
   imports: [
     CommonModule,
     FormsModule,
-    ModalModule
+    ModalModule,
+    Ng2SearchPipeModule
   ],
   exports: [
     StudentManagementComponent,
