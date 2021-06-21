@@ -11,7 +11,7 @@ export class StudentManagementComponent implements OnInit {
   searchString: string;
   students: Student[] = [];
   title: string = '';
-  headElements = ['ID', 'Name', 'College', 'Year', 'Department', 'email', 'Mobile', 'Action'];
+  headElements = ['S.No', 'Name', 'College', 'Year', 'Department', 'email', 'Mobile', 'Action'];
   constructor(private studentService: StudentService) { }
 
   ngOnInit(): void {
