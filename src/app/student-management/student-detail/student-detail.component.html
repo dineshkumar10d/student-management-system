@@ -95,10 +95,7 @@
                                 Please enter the year above 2010!
                             </span>
                         </div>
-                        <div class="form-group col-md-6 col-lg-4">
-                            <label for="firstGraduate">First Graduate</label>
-                            <input type="checkbox" class="form-control" id="firstGraduate" name="firstGraduate" ngModel>
-                        </div>
+
                         <div class="form-group col-md-6 col-lg-4">
                             <label for="age">age</label>
                             <input type="number" class="form-control" id="age" placeholder="Age Of the Student" name="age" ngModel required pattern="^(?:1[01][0-9]|120|1[7-9]|[2-9][0-9])$" #age="ngModel">
@@ -106,6 +103,12 @@
                                 Please enter the age above 16!
                             </span>
                         </div>
+
+                        <div class="form-group form-check">
+                            <label class="form-check-label" for="firstGraduate">First Graduate</label>
+                            <input type="checkbox" class="form-control" id="firstGraduate" name="firstGraduate" ngModel>
+                        </div>
+
                         <div class="form-group col-md-6 col-lg-4">
                             <label for="mobile">Mobile</label>
                             <input type="number" class="form-control" id="mobile" placeholder="Mobile No" name="mobile" required ngModel pattern="[6-9]{1}[0-9]{9}" #mobile="ngModel">

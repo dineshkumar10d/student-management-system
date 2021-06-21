@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ModalManager } from 'ngb-modal';
 import { NgForm } from '@angular/forms';
-import { StudentService } from '../student.service';
+import { StudentService } from '../../sharedFolder/student.service';
 import { Subscription } from 'rxjs';
 import { Student } from 'src/app/sharedFolder/student.model';
 
