@@ -1,7 +1,7 @@
 
 export class Student {
     public name: string;
-    public fatherName:string;
+    public fatherName: string;
     public address: string;
     public collegeName: string;
     public year: number;
@@ -17,7 +17,7 @@ export class Student {
 
     constructor(
         name: string,
-        fatherName:string, 
+        fatherName: string,
         address: string,
         collegeName: string,
         year: number,
@@ -30,7 +30,7 @@ export class Student {
         degree: string,
         rollNo: string,
         gender: string,
-        ) {
+    ) {
         this.name = name;
         this.fatherName = fatherName;
         this.address = address;

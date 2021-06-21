@@ -7,21 +7,21 @@ import { Student } from '../sharedFolder/student.model';
 export class StudentService {
   createStudent = new Subject<any>();
   studentSelected = new Subject<number>();
-  EditStudent = new Subject<number>();
+  editStudent = new Subject<number>();
   studentChanged = new Subject<Student[]>();
 
   private students: Student[] = [];
 
   constructor() { }
 
-  getStudents(){
+  getStudents() {
     const student = JSON.parse((localStorage.getItem('studentData')));
-    if(student){
-      this.students= student;
+    if (student) {
+      this.students = student;
     }
     return this.students;
   }
-  
+
   addStudent(student: Student) {
     this.students.push(student);
     this.studentChanged.next(this.students.slice());

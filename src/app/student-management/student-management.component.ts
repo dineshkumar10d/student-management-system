@@ -9,7 +9,7 @@ import { StudentService } from './student.service';
 })
 export class StudentManagementComponent implements OnInit {
   students: Student[] = [];
-  title: string ='';
+  title: string = '';
   headElements = ['ID', 'Name', 'College', 'Year', 'Department', 'email', 'Mobile', 'Action'];
   constructor(private studentService: StudentService) { }
 
@@ -21,13 +21,13 @@ export class StudentManagementComponent implements OnInit {
     this.students = this.studentService.getStudents();
   }
 
-  onCreate(){
+  onCreate() {
     this.title = 'Create';
     this.studentService.createStudent.next(this.title);
   }
 
   onEdit(index: number) {
-    this.studentService.EditStudent.next(index);
+    this.studentService.editStudent.next(index);
   }
 
   onView(index: number) {
@@ -35,11 +35,11 @@ export class StudentManagementComponent implements OnInit {
   }
 
   onDelete(index: number) {
-    if(confirm("Are you sure to delete?"))
-    this.studentService.deleteStudent(index);
+    if (confirm("Are you sure to delete?"))
+      this.studentService.deleteStudent(index);
   }
 
-  onSearch(table: any){
+  onSearch(table: any) {
     console.log(table);
   }
 }

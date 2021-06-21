@@ -1,44 +1,41 @@
-<div class="container-fluid" style="margin-top:100px;">
+<div class="container-fluid margin">
     <div class="row">
         <div class="col-md-6  mx-auto">
             <div class="md-form">
-                <input type="text" class="form-control" placeholder="Search" style="width: 25vw;" (onchange)="onSearch(t)" />
+                <input type="text" class="form-control search" placeholder="Search" (onchange)="onSearch(t)" />
             </div>
         </div>
         <div class="col-md-6 mx-auto">
-            <button type="button" class="btn btn-primary btn btn-rounded" style="float: right; border-radius: 25px;" (click)="onCreate()">
+            <button type="button" class="btn btn-primary btn btn-rounded btn-create" (click)="onCreate()">
                 <i class="bi bi-plus-lg"></i>
                 Create
             </button>
         </div>
     </div>
-<div class="table-responsive">
-    <table class="table" style="margin-top:10px;" #t>
-        <thead style="background-color: #15008fe5; color: white;">
-            <tr>
-                <th style="width:50px" *ngFor="let head of headElements" scope="col">{{head}} </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr mdbTableCol *ngFor="let std of students; let i = index">
-                <th style="width:50px" scope="row">{{i + 1}}</th>
-                <td style="width:50px">{{std.name}}</td>
-                <td style="width:50px">{{std.collegeName}}</td>
-                <td style="width:50px">{{std.year}}</td>
-                <td style="width:50px">{{std.department}}</td>
-                <td style="width:50px">{{std.email}}</td>
-                <td style="width:50px">{{std.mobile}}</td>
-                <td style="width:50px" class="action-column">
-                    <i class="bi bi-pencil-square" style="cursor: pointer; color: #0051ff9a;" data-toggle="tooltip"
-                        title="Edit" (click)="onEdit(i)"></i>&nbsp;
-                    <i class="bi bi-eye" style="cursor: pointer; color: #005a00;" data-toggle="tooltip" title="View"
-                        (click)="onView(i)"></i>&nbsp;
-                    <i class="bi bi-trash" style="cursor: pointer; color: #b60404;" data-toggle="tooltip" title="Delete"
-                        (click)="onDelete(i)"></i>&nbsp;
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+    <div class="table-responsive">
+        <table class="table table-margin" #t>
+            <thead class="table-header">
+                <tr>
+                    <th class="t-data" *ngFor="let head of headElements" scope="col">{{head}} </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let std of students; let i = index">
+                    <th class="t-data" scope="row">{{i + 1}}</th>
+                    <td class="t-data">{{std.name}}</td>
+                    <td class="t-data">{{std.collegeName}}</td>
+                    <td class="t-data">{{std.year}}</td>
+                    <td class="t-data">{{std.department}}</td>
+                    <td class="t-data">{{std.email}}</td>
+                    <td class="t-data">{{std.mobile}}</td>
+                    <td class="action-column t-data">
+                        <i class="bi bi-pencil-square i-edit" data-toggle="tooltip" title="Edit" (click)="onEdit(i)"></i>&nbsp;
+                        <i class="bi bi-eye i-view" data-toggle="tooltip" title="View" (click)="onView(i)"></i>&nbsp;
+                        <i class="bi bi-trash i-delete" data-toggle="tooltip" title="Delete" (click)="onDelete(i)"></i>&nbsp;
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <app-student-detail></app-student-detail>
 </div>

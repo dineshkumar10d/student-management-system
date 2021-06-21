@@ -4,24 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { StudentManagementComponent } from './student-management/student-management.component';
-import { StudentDetailComponent } from './student-management/student-detail/student-detail.component';
-import { ModalModule } from 'ngb-modal';
-import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer/footer.component';
+import { StudentModule } from './student-management/student.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    StudentManagementComponent,
-    StudentDetailComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ModalModule,
-    FormsModule
+    StudentModule
   ],
   providers: [],
   bootstrap: [AppComponent]

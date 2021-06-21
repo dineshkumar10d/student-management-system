@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ModalManager } from 'ngb-modal';
 import { NgForm } from '@angular/forms';
 import { StudentService } from '../student.service';
@@ -10,7 +10,7 @@ import { Student } from 'src/app/sharedFolder/student.model';
   templateUrl: './student-detail.component.html',
   styleUrls: ['./student-detail.component.css']
 })
-export class StudentDetailComponent implements OnInit {
+export class StudentDetailComponent implements OnInit, OnDestroy {
   editMode: boolean = false;
   viewMode: boolean = false;
   createMode: boolean = false;
@@ -32,7 +32,7 @@ export class StudentDetailComponent implements OnInit {
         this.openDialog(title);
       })
 
-    this.subscription = this.studentService.EditStudent
+    this.subscription = this.studentService.editStudent
       .subscribe((index: number) => {
         this.viewMode = false;
         this.editMode = true;
@@ -84,4 +84,7 @@ export class StudentDetailComponent implements OnInit {
     this.closeDialog()
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }
