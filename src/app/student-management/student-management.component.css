@@ -1,0 +1,47 @@
+.table-responsive {
+    overflow: auto;
+    max-height: 420px;
+}
+
+.margin {
+    margin-top: 100px;
+}
+
+.search {
+    width: 25vw;
+}
+
+.btn-create {
+    float: right;
+    border-radius: 25px;
+}
+
+.table-margin {
+    margin-top: 10px;
+}
+
+.table-header {
+    background-color: #15008fe5;
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+.t-data {
+    width: 50px;
+}
+
+.i-edit {
+    cursor: pointer;
+    color: #0051ff9a;
+}
+
+.i-view {
+    cursor: pointer;
+    color: #005a00;
+}
+
+.i-delete {
+    cursor: pointer;
+    color: #b60404;
+}

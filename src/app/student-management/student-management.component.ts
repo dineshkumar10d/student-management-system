@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DialogService } from '../sharedFolder/dialog.service';
 import { Student } from '../sharedFolder/student.model';
-import { StudentService } from './student.service';
+import { StudentService } from '../sharedFolder/student.service';
 
 @Component({
   selector: 'app-student-management',
@@ -9,10 +8,11 @@ import { StudentService } from './student.service';
   styleUrls: ['./student-management.component.css']
 })
 export class StudentManagementComponent implements OnInit {
+  searchString: string;
   students: Student[] = [];
-  title: string ='';
+  title: string = '';
   headElements = ['ID', 'Name', 'College', 'Year', 'Department', 'email', 'Mobile', 'Action'];
-  constructor(private studentService: StudentService, private dialogService: DialogService) { }
+  constructor(private studentService: StudentService) { }
 
   ngOnInit(): void {
     this.studentService.studentChanged
@@ -22,23 +22,25 @@ export class StudentManagementComponent implements OnInit {
     this.students = this.studentService.getStudents();
   }
 
-  onCreate(){
+  onCreate() {
     this.title = 'Create';
-    this.dialogService.dialog.next(this.title);
+    this.studentService.createStudent.next(this.title);
   }
 
   onEdit(index: number) {
-    this.title = 'Edit';
-    this.dialogService.dialog.next(this.title);  
+    this.studentService.editStudent.next(index);
   }
 
   onView(index: number) {
-    this.title = 'View';
-    this.dialogService.dialog.next(this.title);
+    this.studentService.studentSelected.next(index);
   }
 
   onDelete(index: number) {
-    this.studentService.deleteStudent(index)
+    if (confirm("Are you sure to delete?"))
+      this.studentService.deleteStudent(index);
   }
 
+  onSearch(table: any) {
+    console.log(table);
+  }
 }

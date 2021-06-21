@@ -1,8 +1,7 @@
 
 export class Student {
-    public id: number;
     public name: string;
-    public fatherName:string;
+    public fatherName: string;
     public address: string;
     public collegeName: string;
     public year: number;
@@ -12,11 +11,13 @@ export class Student {
     public age: number;
     public mobile: string;
     public email: string;
+    public degree: string;
+    public rollNo?: string;
+    public gender: string;
 
     constructor(
-        id: number,
         name: string,
-        fatherName:string, 
+        fatherName: string,
         address: string,
         collegeName: string,
         year: number,
@@ -25,9 +26,11 @@ export class Student {
         firstGraduate: boolean,
         age: number,
         mobile: string,
-        email: string
-        ) {
-        this.id = id;
+        email: string,
+        degree: string,
+        rollNo: string,
+        gender: string,
+    ) {
         this.name = name;
         this.fatherName = fatherName;
         this.address = address;
@@ -39,5 +42,8 @@ export class Student {
         this.mobile = mobile;
         this.email = email;
         this.collegeName = collegeName;
+        this.degree = degree;
+        this.rollNo = rollNo;
+        this.gender = gender;
     }
 }
