@@ -30,9 +30,9 @@
                     <td class="t-data">{{std.email}}</td>
                     <td class="t-data">{{std.mobile}}</td>
                     <td class="action-column t-data">
-                        <i class="bi bi-pencil-square i-edit" data-toggle="tooltip" title="Edit" (click)="onEdit(i)"></i>&nbsp;
-                        <i class="bi bi-eye i-view" data-toggle="tooltip" title="View" (click)="onView(i)"></i>&nbsp;
-                        <i class="bi bi-trash i-delete" data-toggle="tooltip" title="Delete" (click)="onDelete(i)"></i>&nbsp;
+                        <i class="bi bi-pencil-square i-edit" data-toggle="tooltip" title="Edit" (click)="onEdit(std.id)"></i>&nbsp;
+                        <i class="bi bi-eye i-view" data-toggle="tooltip" title="View" (click)="onView(std.id)"></i>&nbsp;
+                        <i class="bi bi-trash i-delete" data-toggle="tooltip" title="Delete" (click)="onDelete(std.id)"></i>&nbsp;
                     </td>
                 </tr>
             </tbody>

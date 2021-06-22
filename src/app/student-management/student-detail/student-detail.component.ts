@@ -33,21 +33,51 @@ export class StudentDetailComponent implements OnInit, OnDestroy {
       })
 
     this.subscription = this.studentService.editStudent
-      .subscribe((index: number) => {
+      .subscribe((id: number) => {
         this.viewMode = false;
         this.editMode = true;
-        this.editedStudentIndex = index;
-        this.student = this.studentService.getStudent(index);
-        this.form.setValue(this.student);
+        this.editedStudentIndex = id;
+        this.student = this.studentService.getStudent(id);
+        this.form.setValue({
+          name: this.student.name,
+          fatherName: this.student.fatherName,
+          address: this.student.address,
+          collegeName: this.student.collegeName,
+          year: this.student.year,
+          department: this.student.department,
+          yearOfJoin: this.student.yearOfJoin,
+          firstGraduate: this.student.firstGraduate,
+          age: this.student.age,
+          mobile: this.student.mobile,
+          email: this.student.email,
+          degree: this.student.degree,
+          rollNo: this.student.rollNo,
+          gender: this.student.gender
+        });
         this.openDialog("Edit");
       })
 
     this.subscription = this.studentService.studentSelected
-      .subscribe((index: number) => {
+      .subscribe((id: number) => {
         this.editMode = false;
         this.viewMode = true;
-        this.student = this.studentService.getStudent(index);
-        this.form.setValue(this.student);
+        this.student = this.studentService.getStudent(id);
+        this.form.setValue({
+          name: this.student.name,
+          fatherName: this.student.fatherName,
+          address: this.student.address,
+          collegeName: this.student.collegeName,
+          year: this.student.year,
+          department: this.student.department,
+          yearOfJoin: this.student.yearOfJoin,
+          firstGraduate: this.student.firstGraduate,
+          age: this.student.age,
+          mobile: this.student.mobile,
+          email: this.student.email,
+          degree: this.student.degree,
+          rollNo: this.student.rollNo,
+          gender: this.student.gender
+        });
         this.openDialog('View');
       })
   }

@@ -28,20 +28,16 @@ export class StudentManagementComponent implements OnInit {
     this.studentService.createStudent.next(this.title);
   }
 
-  onEdit(index: number) {
-    this.studentService.editStudent.next(index);
+  onEdit(id: number) {
+    this.studentService.editStudent.next(id);
   }
 
-  onView(index: number) {
-    this.studentService.studentSelected.next(index);
+  onView(id: number) {
+    this.studentService.studentSelected.next(id);
   }
 
-  onDelete(index: number) {
+  onDelete(id: number) {
     if (confirm("Are you sure to delete?"))
-      this.studentService.deleteStudent(index);
-  }
-
-  onSearch(table: any) {
-    console.log(table);
+      this.studentService.deleteStudent(id);
   }
 }
