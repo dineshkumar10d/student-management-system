@@ -5,6 +5,7 @@ import { ModalModule } from 'ngb-modal';
 import { StudentManagementComponent } from '../student-management/student-management.component';
 import { StudentDetailComponent } from '../student-management/student-detail/student-detail.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     CommonModule,
     FormsModule,
     ModalModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgxPaginationModule
   ],
   exports: [
     StudentManagementComponent,

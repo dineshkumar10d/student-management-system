@@ -12,7 +12,7 @@
             </button>
         </div>
     </div>
-    <div class="table-responsive">
+    <div>
         <table class="table table-margin" #t>
             <thead class="table-header">
                 <tr>
@@ -20,7 +20,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let std of students | filter:searchString; let i = index">
+                <tr *ngFor="let std of students | filter:searchString | paginate:{ itemsPerPage: 7,
+                currentPage: currentPage}; let i = index">
                     <th class="t-data" scope="row">{{i + 1}}</th>
                     <td class="t-data">{{std.name}}</td>
                     <td class="t-data">{{std.collegeName}}</td>
@@ -36,6 +37,7 @@
                 </tr>
             </tbody>
         </table>
+        <pagination-controls class="pagination" (pageChange)="currentPage = $event"></pagination-controls>
     </div>
     <app-student-detail></app-student-detail>
 </div>
