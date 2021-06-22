@@ -1,7 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 @import "~bootstrap4-toggle/css/bootstrap4-toggle.min.css";
-
-label{
+label {
     font-weight: bold;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
