@@ -1,5 +1,6 @@
 
 export class Student {
+    public id: number;
     public name: string;
     public fatherName: string;
     public address: string;
@@ -16,6 +17,7 @@ export class Student {
     public gender: string;
 
     constructor(
+        id: number,
         name: string,
         fatherName: string,
         address: string,
@@ -31,6 +33,7 @@ export class Student {
         rollNo: string,
         gender: string,
     ) {
+        this.id = id;
         this.name = name;
         this.fatherName = fatherName;
         this.address = address;
