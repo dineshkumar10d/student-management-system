@@ -31,32 +31,21 @@ export class StudentService {
   }
 
   getStudent(id: number) {
-    Object.keys(this.students).forEach(index => {
-      if(this.students[(index)].id === id){
-        this.index = Number(index);
-        return this.students[index];
-      }
-    });
+    this.index = this.students.findIndex(student => student.id === id);
     return this.students[this.index];
   }
 
   updateStudent(id: number, newStudent: Student) {
-    Object.keys(this.students).forEach( index => {
-      if(this.students[index].id === id){
-        this.students[index] = newStudent;
-        this.studentChanged.next(this.students.slice());
-        localStorage.setItem('studentData', JSON.stringify(this.students));
-      }
-    })
+    this.index = this.students.findIndex(student => student.id === id);
+    this.students[this.index] = newStudent;
+    this.studentChanged.next(this.students.slice());
+    localStorage.setItem('studentData', JSON.stringify(this.students));
   }
 
   deleteStudent(id: number) {
-    Object.keys(this.students).forEach(index =>{
-      if(this.students[index].id === id) {
-        this.students.splice(Number(index),1);
-        this.studentChanged.next(this.students.slice());
-        localStorage.setItem('studentData', JSON.stringify(this.students));
-      }
-    })
+    this.index = this.students.findIndex(student => student.id === id);
+    this.students.splice(this.index, 1);
+    this.studentChanged.next(this.students.slice());
+    localStorage.setItem('studentData', JSON.stringify(this.students));
   }
 }
