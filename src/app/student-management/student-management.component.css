@@ -45,3 +45,8 @@
     cursor: pointer;
     color: #b60404;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
