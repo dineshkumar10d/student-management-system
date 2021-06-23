@@ -6,6 +6,7 @@ import { StudentManagementComponent } from '../student-management/student-manage
 import { StudentDetailComponent } from '../student-management/student-detail/student-detail.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     ModalModule,
     Ng2SearchPipeModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    HttpClientModule
   ],
   exports: [
     StudentManagementComponent,

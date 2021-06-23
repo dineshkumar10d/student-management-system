@@ -128,7 +128,7 @@
             </form>
         </modal-content>
         <modal-footer>
-            <button form="studentForm" type="submit" class="btn btn-primary" [hidden]="viewMode" [disabled]="!f.valid">Save</button>&nbsp;
+            <button form="studentForm" type="submit" class="btn btn-primary" [hidden]="viewMode" [disabled]="!f.valid">{{editMode ? 'Update' : 'Save'}}</button>&nbsp;
             <button type="button" class="btn btn-primary" (click)="closeDialog()">close</button>
         </modal-footer>
     </modal>

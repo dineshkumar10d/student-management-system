@@ -15,11 +15,14 @@ export class StudentService {
 
   constructor() { }
 
-  getStudents() {
-    const student = JSON.parse((localStorage.getItem('studentData')));
+  setStudents(student: Student[]) {
     if (student) {
       this.students = student;
+      this.studentChanged.next(this.students.slice());
     }
+  }
+
+  getStudents() {
     return this.students;
   }
 
@@ -27,7 +30,6 @@ export class StudentService {
     student.id = Math.floor(1000 + Math.random() * 9000);
     this.students.push(student);
     this.studentChanged.next(this.students.slice());
-    localStorage.setItem('studentData', JSON.stringify(this.students));
   }
 
   getStudent(id: number) {
@@ -39,13 +41,11 @@ export class StudentService {
     this.index = this.students.findIndex(student => student.id === id);
     this.students[this.index] = newStudent;
     this.studentChanged.next(this.students.slice());
-    localStorage.setItem('studentData', JSON.stringify(this.students));
   }
 
   deleteStudent(id: number) {
     this.index = this.students.findIndex(student => student.id === id);
     this.students.splice(this.index, 1);
     this.studentChanged.next(this.students.slice());
-    localStorage.setItem('studentData', JSON.stringify(this.students));
   }
 }
