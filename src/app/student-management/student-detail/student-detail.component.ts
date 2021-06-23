@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { StudentService } from '../../sharedFolder/student.service';
 import { Subscription } from 'rxjs';
 import { Student } from 'src/app/sharedFolder/student.model';
+import { StorageService } from 'src/app/sharedFolder/storage.service';
 
 @Component({
   selector: 'app-student-detail',
@@ -21,7 +22,7 @@ export class StudentDetailComponent implements OnInit, OnDestroy {
   @ViewChild('myModal', { static: true }) myModal;
   @ViewChild('f', { static: true }) form: NgForm;
   private modalRef: any;
-  constructor(private modalService: ModalManager, private studentService: StudentService) { }
+  constructor(private modalService: ModalManager, private studentService: StudentService, private storageService: StorageService) { }
 
   ngOnInit(): void {
 
@@ -81,6 +82,7 @@ export class StudentDetailComponent implements OnInit, OnDestroy {
     else {
       this.studentService.addStudent(form.value);
     }
+    this.storageService.storeStudents();
     this.closeDialog()
   }
 
