@@ -10,6 +10,7 @@ import { StudentService } from '../sharedFolder/student.service';
 })
 export class StudentManagementComponent implements OnInit {
   currentPage: number = 1;
+  itemsPerPage: number = 7;
   searchString: string;
   students: Student[] = [];
   title: string = '';
