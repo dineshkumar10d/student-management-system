@@ -20,9 +20,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let std of students | filter:searchString | paginate:{ itemsPerPage: 7,
+                <tr *ngFor="let std of students | filter:searchString | paginate:{ itemsPerPage: itemsPerPage,
                 currentPage: currentPage}; let i = index">
-                    <th class="t-data" scope="row">{{i + 1}}</th>
+                    <th class="t-data" scope="row">{{(currentPage - 1) * itemsPerPage + i + 1}}</th>
                     <td class="t-data">{{std.name}}</td>
                     <td class="t-data">{{std.collegeName}}</td>
                     <td class="t-data">{{std.year}}</td>
