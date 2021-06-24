@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ModalManager } from 'ngb-modal';
 import { NgForm } from '@angular/forms';
 import { StudentService } from '../../sharedFolder/student.service';
@@ -15,8 +15,9 @@ export class StudentDetailComponent implements OnInit, OnDestroy {
   editMode: boolean = false;
   viewMode: boolean = false;
   createMode: boolean = false;
-  editedStudentIndex: number;
+  editedStudentId: number;
   student: Student;
+  rawStudentData: Student[];
   private subscription: Subscription
 
   @ViewChild('myModal', { static: true }) myModal;
@@ -25,6 +26,10 @@ export class StudentDetailComponent implements OnInit, OnDestroy {
   constructor(private modalService: ModalManager, private studentService: StudentService, private storageService: StorageService) { }
 
   ngOnInit(): void {
+    this.subscription = this.studentService.studentChanged
+      .subscribe((students: Student[]) => {
+        this.rawStudentData = students;
+      })
 
     this.subscription = this.studentService.createStudent
       .subscribe((title: string) => {
@@ -34,21 +39,19 @@ export class StudentDetailComponent implements OnInit, OnDestroy {
       })
 
     this.subscription = this.studentService.editStudent
-      .subscribe((id: number) => {
+      .subscribe((formValue: Student) => {
         this.viewMode = false;
         this.editMode = true;
-        this.editedStudentIndex = id;
-        this.student = this.studentService.getStudent(id);
-        this.form.control.patchValue(this.student);
-        this.openDialog("Edit");
+        this.editedStudentId = formValue.id;
+        this.form.control.patchValue(formValue);
+        this.openDialog('Edit');
       })
 
     this.subscription = this.studentService.studentSelected
-      .subscribe((id: number) => {
+      .subscribe((formValue: Student) => {
         this.editMode = false;
         this.viewMode = true;
-        this.student = this.studentService.getStudent(id);
-        this.form.control.patchValue(this.student);
+        this.form.control.patchValue(formValue);
         this.openDialog('View');
       })
   }
@@ -77,12 +80,15 @@ export class StudentDetailComponent implements OnInit, OnDestroy {
 
   onSave(form: NgForm) {
     if (this.editMode) {
-      this.studentService.updateStudent(this.editedStudentIndex, form.value)
+      Object.keys(this.rawStudentData).forEach(index => {
+        if (this.rawStudentData[(index)].id === this.editedStudentId) {
+          this.storageService.studentPut(index,form.value);
+        }
+      });
     }
     else {
-      this.studentService.addStudent(form.value);
+      this.storageService.studentPost(form.value);
     }
-    this.storageService.storeStudents();
     this.closeDialog()
   }
 
