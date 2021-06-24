@@ -78,11 +78,11 @@
                         <div class="form-group col-md-6 col-lg-4">
                             <label for="year">Year</label>
                             <select class="form-select form-control" id="year" name="year" ngModel required #year="ngModel">
-                                <option selected value="1">Ist Year</option>
-                                <option value="2">IInd Year</option>
-                                <option value="3">IIIrd Year</option>
-                                <option value="4">IVth Year</option>
-                                <option value="5">Completed</option>
+                                <option selected value="I">Ist Year</option>
+                                <option value="II">IInd Year</option>
+                                <option value="III">IIIrd Year</option>
+                                <option value="IV">IVth Year</option>
+                                <option value="Alumni">Completed</option>
                             </select>
                             <span class="valid" *ngIf="!year.valid && year.touched">
                                 Please select the year!
