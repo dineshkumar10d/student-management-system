@@ -13,7 +13,7 @@ export class StorageService {
 
   studentPost(student: Student) {
     student.id = Math.floor(1000 + Math.random() * 9000);
-    const url = this.urlDev + '.json';
+    const url = this.url + '.json';
     this.http.post(url, student)
       .subscribe((response) => {
         if (response) {
@@ -23,7 +23,7 @@ export class StorageService {
   }
 
   studentGet() {
-    const url = this.urlDev + '.json';
+    const url = this.url + '.json';
     return this.http.get<Student[]>(url)
       .subscribe((students) => {
         this.studentService.setStudents(students);
@@ -31,7 +31,7 @@ export class StorageService {
   }
 
   studentPut(id: string, student: Student) {
-    const url = this.urlDev + id + '.json';
+    const url = this.url + id + '.json';
     this.http.put(url, student, {
     }).subscribe((response) => {
       if (response) {
@@ -41,7 +41,7 @@ export class StorageService {
   }
 
   studentDelete(id: string) {
-    const url = this.urlDev + id + '.json';
+    const url = this.url + id + '.json';
     this.http.delete(url)
       .subscribe(() => {
         this.studentGet();
