@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { StorageService } from '../sharedFolder/storage.service';
 import { Student } from '../sharedFolder/student.model';
 import { StudentService } from '../sharedFolder/student.service';
@@ -16,9 +17,10 @@ export class StudentManagementComponent implements OnInit {
   rawStudentData: Student[] = [];
   title: string = '';
   headElements = ['S.No', 'Name', 'College', 'Year', 'Department', 'email', 'Mobile', 'Action'];
-  constructor(private studentService: StudentService, private storageService: StorageService) { }
+  constructor(private studentService: StudentService, private storageService: StorageService, private spinnerService: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spinnerService.show();
     this.storageService.studentGet();
     this.studentService.studentChanged
       .subscribe((students: Student[]) => {
@@ -26,10 +28,12 @@ export class StudentManagementComponent implements OnInit {
           let convertedData = Object.keys(students).map(key => students[key]); //converting object of object to  arrayu of object
           this.rawStudentData = students;
           this.studentsTable = convertedData;
+          this.spinnerService.hide();
         }
         else {
           this.rawStudentData = [];
           this.studentsTable = [];
+          this.spinnerService.hide();
         }
       })
     this.studentsTable = this.studentService.getStudents();
