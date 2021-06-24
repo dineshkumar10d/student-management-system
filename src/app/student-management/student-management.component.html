@@ -20,7 +20,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let std of students | filter:searchString | paginate:{ itemsPerPage: itemsPerPage,
+                <tr *ngFor="let std of studentsTable | filter:searchString | paginate:{ itemsPerPage: itemsPerPage,
                 currentPage: currentPage}; let i = index">
                     <th class="t-data" scope="row">{{(currentPage - 1) * itemsPerPage + i + 1}}</th>
                     <td class="t-data">{{std.name}}</td>
@@ -30,8 +30,8 @@
                     <td class="t-data">{{std.email}}</td>
                     <td class="t-data">{{std.mobile}}</td>
                     <td class="action-column t-data">
-                        <i class="bi bi-pencil-square i-edit" data-toggle="tooltip" title="Edit" (click)="onEdit(std.id)"></i>&nbsp;
-                        <i class="bi bi-eye i-view" data-toggle="tooltip" title="View" (click)="onView(std.id)"></i>&nbsp;
+                        <i class="bi bi-pencil-square i-edit" data-toggle="tooltip" title="Edit" (click)="onEdit(std)"></i>&nbsp;
+                        <i class="bi bi-eye i-view" data-toggle="tooltip" title="View" (click)="onView(std)"></i>&nbsp;
                         <i class="bi bi-trash i-delete" data-toggle="tooltip" title="Delete" (click)="onDelete(std.id)"></i>&nbsp;
                     </td>
                 </tr>
